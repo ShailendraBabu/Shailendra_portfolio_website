@@ -3402,29 +3402,60 @@ img.u-pull-left {
  * ## about info
  * -------------------------------------------------------------------- */
 .about-info {
-    --gutter    : 0;
-    width       : 100%;
-    align-items : center;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 30px;         /* space between image and text */
+    width: 100%;
+    padding: 0 10vw;   /* horizontal padding consistent with your about-info__text */
+    box-sizing: border-box;
+}
+
+.about-info__pic-block {
+    flex: 1 1 300px;
+    max-width: 50%;
 }
 
 .about-info__pic {
-    object-fit     : cover;
-    margin         : 0;
-    vertical-align : bottom;
+    width: 100%;
+    height: auto;
+    object-fit: cover;  /* keep your existing */
+    margin: 0;
+    vertical-align: bottom;
+    border-radius: 8px; /* optional rounded corners */
 }
 
 .about-info__text {
-    padding     : var(--vspace-3_5) 10vw var(--vspace-2) 0;
-    margin-left : -4rem;
+    flex: 2 1 400px;
+    max-width: 100%;
+    padding: var(--vspace-3_5) 0 var(--vspace-2) 0;
+    margin-left: 0;      /* Remove negative margin */
+    box-sizing: border-box;
 }
 
 .about-info__text .text-pretitle {
-    margin-bottom : var(--vspace-1);
+    margin-bottom: var(--vspace-1);
 }
 
 .about-info__text .btn {
-    margin-top    : var(--vspace-1);
-    margin-bottom : 0;
+    margin-top: var(--vspace-1);
+    margin-bottom: 0;
+}
+
+/* Responsive - stack vertically on small screens */
+@media (max-width: 768px) {
+    .about-info {
+        flex-direction: column;
+        padding: 0 5vw;
+        gap: 20px;
+    }
+    .about-info__pic-block,
+    .about-info__text {
+        max-width: 100%;
+        flex: 1 1 100%;
+        padding: 0;
+        margin-left: 0;
+    }
 }
 
 /* --------------------------------------------------------------------
